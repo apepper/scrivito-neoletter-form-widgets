@@ -29,7 +29,7 @@ function loadWidgets(): void {
     const widgetImportsContext = require.context(
       "../Widgets",
       true,
-      /Widget(Class|Component|EditingConfig)\.tsx?$/
+      /Widget(Class|Component)\.tsx?$/
     );
     widgetImportsContext.keys().forEach(widgetImportsContext);
   } else {
@@ -37,8 +37,7 @@ function loadWidgets(): void {
     (import.meta as any).glob(
       [
         "../Widgets/**/*WidgetClass.ts",
-        "../Widgets/**/*WidgetComponent.tsx",
-        "../Widgets/**/*WidgetEditingConfig.ts"
+        "../Widgets/**/*WidgetComponent.tsx"
       ],
       {
         eager: true

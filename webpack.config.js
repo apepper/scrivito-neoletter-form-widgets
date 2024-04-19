@@ -24,7 +24,7 @@ module.exports = (_env, argv) => {
     ]
   }),
     new MiniCssExtractPlugin({
-      filename: "index.css",
+      filename: "[name].css",
     }),
   ];
   if (argv.mode === "production") {
@@ -33,7 +33,10 @@ module.exports = (_env, argv) => {
 
   return {
     context: SRC_PATH,
-    entry: { index: "./index.ts" },
+    entry: {
+      index: "./index.ts",
+      editing: "./editing.ts"
+    },
     output: {
       path: BUILD_PATH,
       library: "scrivito-form-widgets",
